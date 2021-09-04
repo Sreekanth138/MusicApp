@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music App</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="bars-div">
+        <canvas id="graph1" width="500" height="300"></canvas>  
+    </div>
+    <audio id="audio" ontimeupdate="updateBar()" 
+        src="http://k007.kiwi6.com/hotlink/tfaw4el9c5/Moon_River_Jazz.mp3">
+    </audio>
+ <br>
+ <div class="playbutton">
+    <span id="current-time"></span> 
+    <span id="duration"></span>
+<br>
+    <button id="audioControl" onclick="togglePlaying()">Play</button>
+</div>
+
+    <!-- Script for App -->
+    <script src="main.js"></script>
+</body>
+</html>
