@@ -9,7 +9,7 @@ const canvasContext = canvas.getContext('2d');
 
 canvasContext.fillStyle = "lightgrey";
 
-for(let i = 0; i <1000;i+= 10){
+for(let i = 0; i <1000;i += 10){
     canvasContext.fillRect(i, 0, 5,100);
 }
 
@@ -36,10 +36,25 @@ audioEl.addEventListener('loadedmetadata', function() {
     var duration = audioEl.duration
 
     var currentTime = audioEl.currentTime
-
+      console.log(duration,currentTime)
     document.getElementById("duration").innerHTML = convertElapsedTime(duration)
     document.getElementById("current-time").innerHTML = convertElapsedTime(currentTime)
     console.log(canvasWidth)
   });
   
+  function togglePlaying() {
+
+    var play = ctrl.innerHTML === 'Play'
+    var method;
   
+    if (play) {
+      ctrl.innerHTML = 'Pause'
+      method = 'play'
+    } else {
+      ctrl.innerHTML = 'Play'
+      method = 'pause'
+    }
+    audioEl[method]()
+  }
+  
+ 
