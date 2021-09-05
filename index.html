@@ -11,20 +11,22 @@
 <body>
 
     <div class="bars-div">
-        <canvas id="graph1" width="500" height="100"></canvas>  
+        <canvas id="graph1" width="700" height="100"></canvas>  
     </div>
-    <audio id="audio" ontimeupdate="updateBar()"
-        src="http://k007.kiwi6.com/hotlink/tfaw4el9c5/Moon_River_Jazz.mp3">
+    <div class="playbutton">
+
+    <audio id="audio" ontimeupdate="updateBar()" controls
+        src="http://k007.kiwi6.com/hotlink/tfaw4el9c5/Moon_River_Jazz.mp3" >
     </audio>
  <br>
- <div class="playbutton">
-    <span id="current-time">/</span> 
-    <span id="duration"></span>
+    <!-- <span id="current-time">/</span> 
+    <span id="duration"></span> -->
 <br>
-    <button id="audioControl" onclick="togglePlaying()">Play</button>
+    <!-- <button id="audioControl" onclick="togglePlaying()">Play</button> -->
 </div>
 
     <!-- Script for App -->
     <script src="main.js"></script>
 </body>
 </html>
+<!-- http://k007.kiwi6.com/hotlink/tfaw4el9c5/Moon_River_Jazz.mp3 -->
