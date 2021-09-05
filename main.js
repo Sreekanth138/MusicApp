@@ -18,44 +18,57 @@ canvasContext.fillStyle = "lightgrey";
 //Creating Bars
 var arr = [];
 
-for(let i = 0; i <1000; i += 10){
+for(let i = audioEl.currentTime; i <1000; i += 3){
   var value = Math.round(Math.random(1) *100)
-    canvasContext.fillRect(i, 0, 3,value);
+    canvasContext.fillRect(i, 0, 2,value);
   arr.push(value)
 }
-
-let count = 0;
-let percent = 0;
-let fill = 0
-
-canvasContext.fillStyle = "orange";
-
-function draw(){
-
-  canvasContext.fillRect(count,0,3,arr[fill]);
-
-    fill += 1
-    console.log(arr[fill],"fill value")
-
-    count += 10;
-    if(count > 100/1){
-        return;
-    }  
-    //window.requestAnimationFrame(draw);
-}
-
-
 
 audioEl.addEventListener('loadedmetadata', function() {
     var duration = audioEl.duration
 
     var currentTime = audioEl.currentTime
       console.log(duration,currentTime)
-    document.getElementById("duration").innerHTML = convertElapsedTime(duration)
-    document.getElementById("current-time").innerHTML = convertElapsedTime(currentTime)
+    // document.getElementById("duration").innerHTML = convertElapsedTime(duration)
+    // document.getElementById("current-time").innerHTML = convertElapsedTime(currentTime)
     console.log(canvasWidth)
   });
   
+var count = audioEl.currentTime;
+
+console.log(count)
+
+let percent = 0;
+var fill = 0
+
+canvasContext.fillStyle = "orange";
+
+function draw(){
+  console.log(arr)
+
+  canvasContext.fillRect(count,0,2,arr[fill]);
+
+  console.log(count,arr[fill],"fill value")
+ 
+    fill += 1
+
+    //console.log(val,"val")
+
+    count += 3;
+    if(count > 100/1){
+        return;
+    }  
+    console.log(count)
+
+    //window.requestAnimationFrame(draw);
+}
+
+  canvas.addEventListener("click",function(){
+
+    console.log(count)
+
+  })
+
   // function togglePlaying() {
 
   //   var play = audio_control.innerHTML === 'Play'
