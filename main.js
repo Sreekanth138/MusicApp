@@ -1,40 +1,42 @@
 //Canvas for bars
 const canvas = document.getElementById('graph1');
 
-canvasWidth = 600;
-canvasHeight = 100;
-
+// canvasWidth = 600;
+// canvasHeight = 100;
 
 const canvasContext = canvas.getContext('2d');
 
 //audio and audio controls
 var audioEl = document.getElementById("audio")
 console.log(audioEl.controls)
-// var audio_control = document.getElementById('audioControl')
+var audio_control = document.getElementById('audioControl')
 
 //Initial Color to the bars
-canvasContext.fillStyle = "lightgrey";
+canvasContext.fillStyle = "green";
+window.onclick = function (){
+  console.log("hello")
+  canvasContext.fillStyle = "orange";
 
+}
 //Creating Bars
 var arr = [];
-
-for(let i = audioEl.currentTime; i <1000; i += 3){
+for(let i = 0; i <1000; i += 3){
   var value = Math.round(Math.random(1) *100)
-    canvasContext.fillRect(i, 0, 2,value);
+  canvasContext.fillRect(i, 0, 2,value);
   arr.push(value)
 }
 
-audioEl.addEventListener('loadedmetadata', function() {
-    var duration = audioEl.duration
+// audioEl.addEventListener('loadedmetadata', function() {
+//     var duration = audioEl.duration
 
-    var currentTime = audioEl.currentTime
-      console.log(duration,currentTime)
-    // document.getElementById("duration").innerHTML = convertElapsedTime(duration)
-    // document.getElementById("current-time").innerHTML = convertElapsedTime(currentTime)
-    console.log(canvasWidth)
-  });
+//     var currentTime = audioEl.currentTime
+//       console.log(duration,currentTime)
+//     // document.getElementById("duration").innerHTML = convertElapsedTime(duration)
+//     // document.getElementById("current-time").innerHTML = convertElapsedTime(currentTime)
+//     console.log(canvasWidth)
+//   });
   
-var count = audioEl.currentTime;
+var count = 0;
 
 console.log(count)
 
@@ -59,26 +61,29 @@ function draw(){
         return;
     }  
     console.log(count)
-
     //window.requestAnimationFrame(draw);
 }
 
+
   canvas.addEventListener("click",function(){
 
+     // console.log(arr[fill])
+    
+      canvasContext.fillRect(i,0,2,value)
+      canvasContext.fillStyle = "orange"
     console.log(count)
-
   })
 
   // function togglePlaying() {
 
-  //   var play = audio_control.innerHTML === 'Play'
+  //    var play = audio_control.innerHTML === 'Play'
   //   var method;
   
   //   if (play) {
-  //     audio_control.innerHTML = 'Pause'
+  //      audio_control.innerHTML = 'pause'
   //     method = 'play'
   //   } else {
-  //     audio_control.innerHTML = 'Play'
+  //      audio_control.innerHTML = 'play'
   //     method = 'pause'
   //   }
   //   audioEl[method]()

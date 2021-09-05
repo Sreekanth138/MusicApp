@@ -1,32 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Music App</title>
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400;500;600;700&family=Lora:ital@0;1&family=Varela&family=Varela+Round&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
     <div class="bars-div">
-        <canvas id="graph1" width="700" height="100"></canvas>  
+      <canvas id="graph1" width="700" height="100"></canvas>
     </div>
     <div class="playbutton">
-
-    <audio id="audio" ontimeupdate="updateBar()" controls
-        src="http://k007.kiwi6.com/hotlink/tfaw4el9c5/Moon_River_Jazz.mp3" >
-    </audio>
- <br>
-    <!-- <span id="current-time">/</span> 
+      <audio
+        id="audio"
+        ontimeupdate="updateBar()"
+        controls
+        src="http://k007.kiwi6.com/hotlink/tfaw4el9c5/Moon_River_Jazz.mp3"
+      ></audio>
+      <br />
+      <!-- <span id="current-time">/</span> 
     <span id="duration"></span> -->
-<br>
-    <!-- <button id="audioControl" onclick="togglePlaying()">Play</button> -->
-</div>
+      <br />
+      <!-- <i class="fas fa-play" id="audioControl" onclick="togglePlaying()"></i> -->
+    </div>
 
     <!-- Script for App -->
     <script src="main.js"></script>
-</body>
+  </body>
 </html>
 <!-- http://k007.kiwi6.com/hotlink/tfaw4el9c5/Moon_River_Jazz.mp3 -->
