@@ -10,9 +10,10 @@ const canvasContext = canvas.getContext('2d');
 var audioEl = document.getElementById("audio")
 console.log(audioEl.controls)
 var audio_control = document.getElementById('audioControl')
+var count = Math.floor(audioEl.currentTime);
 
 //Initial Color to the bars
-canvasContext.fillStyle = "green";
+canvasContext.fillStyle = "lightgrey";
 window.onclick = function (){
   console.log("hello")
   canvasContext.fillStyle = "orange";
@@ -26,30 +27,25 @@ for(let i = 0; i <1000; i += 3){
   arr.push(value)
 }
 
-// audioEl.addEventListener('loadedmetadata', function() {
-//     var duration = audioEl.duration
-
-//     var currentTime = audioEl.currentTime
-//       console.log(duration,currentTime)
-//     // document.getElementById("duration").innerHTML = convertElapsedTime(duration)
-//     // document.getElementById("current-time").innerHTML = convertElapsedTime(currentTime)
-//     console.log(canvasWidth)
-//   });
+//audio update
+audioEl.addEventListener('timeupdate', function() {
+    var duration = audioEl.duration
+    var currentTime = audioEl.currentTime
+      console.log(duration,currentTime)
+      let progress_time = (currentTime / duration) * 100;
+      canvasContext.width = `${progress_time}%`
+      draw()
+});
   
-var count = 0;
 
-console.log(count)
-
-let percent = 0;
 var fill = 0
 
 canvasContext.fillStyle = "orange";
 
 function draw(){
-  console.log(arr)
-
-  canvasContext.fillRect(count,0,2,arr[fill]);
-
+  
+      canvasContext.fillRect(count,0,2,arr[fill]);
+   
   console.log(count,arr[fill],"fill value")
  
     fill += 1
@@ -64,57 +60,37 @@ function draw(){
     //window.requestAnimationFrame(draw);
 }
 
+  var bars = document.getElementById("bars-div")
 
-  canvas.addEventListener("click",function(){
+  bars.addEventListener("click",(event)=>{
 
      // console.log(arr[fill])
-    
-      canvasContext.fillRect(i,0,2,value)
-      canvasContext.fillStyle = "orange"
-    console.log(count)
+     let duration = audioEl.duration;
+
+    let moveProgress = (event.offsetX / event.srcElement.clientWidth) * duration
+    console.log(moveProgress)
+    console.log(duration)
+    audioEl.currentTime = moveProgress;
+    draw(moveProgress)
   })
 
-  // function togglePlaying() {
-
-  //    var play = audio_control.innerHTML === 'Play'
-  //   var method;
-  
-  //   if (play) {
-  //      audio_control.innerHTML = 'pause'
-  //     method = 'play'
-  //   } else {
-  //      audio_control.innerHTML = 'play'
-  //     method = 'pause'
-  //   }
-  //   audioEl[method]()
-  // }
-  
-  // canvas.addEventListener('click', function() {
-  //   var currentTime =Math.floor(audioEl.duration - audioEl.currentTime) 
-
-  //   updateBar(currentTime)
-
-  //     console.log(currentTime)
-
-  //       //console.log(canvasContext.moveTo(0,currentTime))
-
-  // })
-
   // Updating the Bar based on current time
-  function updateBar() {
+  // function updateBar() {
 
-    // var currentTime = audioEl.currentTime
-    // var duration = audioEl.duration
+  //   // var currentTime = audioEl.currentTime
+  //   // var duration = audioEl.duration
 
-    //let current = Math.floor(duration - currentTime)
-    draw()
-    // if (currentTime === duration) {
-    //   audio_control.innerHTML = "Play"
-    // }
-    // document.getElementById("current-time").innerHTML = convertElapsedTime(currentTime)
+  //   //let current = Math.floor(duration - currentTime)
+  //     draw()
+    
+    
+  //   // if (currentTime === duration) {
+  //   //   audio_control.innerHTML = "Play"
+  //   // }
+  //   // document.getElementById("current-time").innerHTML = convertElapsedTime(currentTime)
 
-    console.log(canvasContext)
-  }
+  //   console.log(canvasContext)
+  // }
 
   //Converting Time to Display
   // function convertElapsedTime(inputSeconds) {
