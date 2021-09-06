@@ -44,7 +44,7 @@ canvasContext.fillStyle = "orange";
 
 function draw(){
   
-      canvasContext.fillRect(count,0,2,arr[fill]);
+  canvasContext.fillRect(count,0,2,arr[fill]);
    
   console.log(count,arr[fill],"fill value")
  
@@ -53,6 +53,7 @@ function draw(){
     //console.log(val,"val")
 
     count += 3;
+
     if(count > 100/1){
         return;
     }  
@@ -64,40 +65,17 @@ function draw(){
 
   bars.addEventListener("click",(event)=>{
 
-     // console.log(arr[fill])
      let duration = audioEl.duration;
 
     let moveProgress = (event.offsetX / event.srcElement.clientWidth) * duration
+    console.log(event.offsetX)
+    console.log(event.srcElement.clientWidth)
     console.log(moveProgress)
-    console.log(duration)
+
     audioEl.currentTime = moveProgress;
+
     draw(moveProgress)
+
   })
 
-  // Updating the Bar based on current time
-  // function updateBar() {
-
-  //   // var currentTime = audioEl.currentTime
-  //   // var duration = audioEl.duration
-
-  //   //let current = Math.floor(duration - currentTime)
-  //     draw()
-    
-    
-  //   // if (currentTime === duration) {
-  //   //   audio_control.innerHTML = "Play"
-  //   // }
-  //   // document.getElementById("current-time").innerHTML = convertElapsedTime(currentTime)
-
-  //   console.log(canvasContext)
-  // }
-
-  //Converting Time to Display
-  // function convertElapsedTime(inputSeconds) {
-  //   var seconds = Math.floor(inputSeconds % 60)
-  //   if (seconds < 10) {
-  //     seconds = "0" + seconds
-  //   }
-  //   var minutes = Math.floor(inputSeconds / 60)
-  //   return minutes + ":" + seconds
-  // }
+  
